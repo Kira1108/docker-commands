@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mysql:
+      image: mysql:8.0
+      ports:
+        - 6306:3306
+      volumes:
+       - ./db-storage::/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=root123
+        - MYSQL_DATABASE=test
+      healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            timeout: 20s
+            retries: 10
