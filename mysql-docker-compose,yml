@@ -5,7 +5,7 @@ services:
       ports:
         - 6306:3306
       volumes:
-       - ./db-storage::/var/lib/mysql
+       - ./db-storage:/var/lib/mysql
       environment:
         - MYSQL_ROOT_PASSWORD=root123
         - MYSQL_DATABASE=test
